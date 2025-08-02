@@ -251,13 +251,12 @@ section.activity-tracker_menu {
     grid-template-rows: 1fr;
     min-height: auto;
     gap: 2rem;
-    border: 1px solid red;  /* Optional: for debugging */
   
   }
 
   .activity-tracker_activity {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexibly adjust columns */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     grid-template-rows: 1fr ;
      gap: 3rem;
      margin-top: 0rem;
@@ -353,7 +352,7 @@ section.activity-tracker_menu {
 }
 
 
-/* @media screen and (min-width: 1110px) {
+ @media screen and (min-width: 1110px) {
 
   section.activity-tracker {
 
@@ -361,4 +360,4 @@ section.activity-tracker_menu {
 
   }
 
-} */ 
+} 
