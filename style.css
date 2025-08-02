@@ -1,0 +1,364 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+
+.rubik-300 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+.rubik-500 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+
+:root {
+  --purple-600: hsl(246, 80%, 60%);
+  --orange-300: hsl(15, 100%, 70%);
+  --blue-300: hsl(195, 74%, 62%);
+  --pink-400: hsl(348, 100%, 68%);
+  --green-400: hsl(145, 58%, 55%);
+  --purple-700: hsl(264, 64%, 52%);
+  --yellow-300: hsl(43, 84%, 65%);
+  /* === Neutral === */
+
+  --navy-950: hsl(226, 43%, 10%);
+  --navy-900: hsl(235, 46%, 20%);
+  --purple-500: hsl(235, 45%, 61%);
+  --navy-200: hsl(236, 100%, 87%);
+}
+
+html {
+  font-size: 16px;
+}
+
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--navy-950);
+  padding: 2rem;
+}
+
+
+.activity-tracker {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.6rem;
+}
+
+
+section.activity-tracker_menu {
+  background-color: var(--navy-900);
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+
+.activity-tracker_menu-profile {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  background: var(--purple-600);
+  padding: 2rem 2.9rem;
+  border-radius: 0 0 15px 15px;
+}
+
+.activity-tracker_menu-profile-img {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.activity-tracker_menu-profile_name {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.activity-tracker_menu-profile-container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.4rem;
+}
+
+.activity-tracker_menu-profile-container :is(h1, p) {
+  margin: 0;
+  padding: 0;
+}
+
+.activity-tracker_menu-profile-container h1 {
+  color: white;
+  font-weight: 300;
+}
+
+.activity-tracker_menu-profile-container p {
+  color: var(--navy-200);
+}
+
+
+.activity-tracker_options {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--navy-900);
+}
+
+.activity-tracker_option {
+  border: none;
+  background-color: transparent;
+  color: var(--navy-200);
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 1.2rem 0;
+  width: max-content;
+
+}
+
+.activity-tracker_option:is(:hover, .active) {
+  color: white;
+}
+
+
+.activity-tracker_activity {
+  width: 100%;
+  display: grid;
+  grid-template-rows:  1fr;
+  grid-column: auto;
+  overflow: hidden;
+  border-radius: 15px;
+  min-height: 10.5rem; 
+  gap: 6px;
+}
+
+
+/* Background color classes */
+
+.activity-tracker_activity.work { --background-color: var(--orange-300); }
+
+.activity-tracker_activity.play { --background-color: var(--blue-300); }
+
+.activity-tracker_activity.study { --background-color: var(--pink-400); }
+
+.activity-tracker_activity.exercise { --background-color: var(--green-400); }
+
+.activity-tracker_activity.social { --background-color: var(--purple-700); }
+
+.activity-tracker_activity.self-care { --background-color: var(--yellow-300); }
+
+
+.activity_bg {
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+  background: var(--background-color);
+  display: grid;
+  place-items: start end;
+  height: 40%;
+  width: 100%;
+}
+
+.activity_bg > img {
+  transform: translate(-2rem, -1rem);
+  position: relative;
+  z-index: 1;
+}
+
+
+.activity_info {
+  position: relative;
+  z-index: 10;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  background: var(--navy-900);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.8rem 0.9rem;
+  cursor: pointer;
+  border-radius: 15px;
+  top:-0.7rem;
+
+}
+
+.activity-tracker_activity:hover > .activity_info {
+  background: var(--purple-500);
+}
+
+
+.activity_header,
+.activity_timeframes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.activity_title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.activity_options:hover > svg path {
+  fill: white;
+}
+
+.activity_current-timeframe {
+  font-size: 1rem;
+  font-weight: 300;
+  color: white;
+}
+
+.activity_previous-timeframe {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy-200);
+  display: flex;
+}
+
+
+/* Responsive Styles */
+
+@media screen and (min-width: 500px) {
+.activity-tracker {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 1fr;
+    min-height: auto;
+    gap: 2rem;
+    border: 1px solid red;  /* Optional: for debugging */
+  
+  }
+
+  .activity-tracker_activity {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexibly adjust columns */
+    grid-template-rows: 1fr ;
+     gap: 3rem;
+     margin-top: 0rem;
+  }
+
+  section.activity-tracker_menu {
+    grid-row: 1/2 ;
+    grid-template-rows: 2fr 1fr;
+    display: grid;
+    flex-direction: column;
+  }
+
+
+  .activity-tracker_menu-profile {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 2rem 2rem;
+    gap: 4rem;
+
+  }
+
+
+  .activity-tracker_menu-profile-img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+
+  .activity-tracker_menu-profile-container {
+    max-width: 68%;
+    gap: 0.3rem;
+  }
+
+  .activity-tracker_menu-profile-container p {
+    font-size: 1.2rem;
+  }
+
+  .activity-tracker_menu-profile-container h1 {
+    font-size: 4.5rem;
+  }
+
+
+  .activity-tracker_options {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 2rem 2rem;
+  }
+
+
+
+  .activity_info {
+    padding: 4rem 2rem;
+    gap: 0.6rem;
+
+  }
+
+  .activity_timeframes p,
+  .activity_timeframes h3 {
+    margin: 0;
+    padding: 0.9rem;
+  }
+  .activity_timeframes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .activity_title {
+    font-size: 1.4rem;
+  }
+
+
+  .activity_current-timeframe {
+    font-size: 3.2rem;
+    line-height: 1rem;
+  }
+
+.activity_current-timeframe p,
+
+.activity_current-timeframe h2,
+
+.activity_current-timeframe h3 {
+  margin: 0;
+  padding: 0;
+}
+
+  .activity_previous-timeframe {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* @media screen and (min-width: 1110px) {
+
+  section.activity-tracker {
+
+    max-width: 111rem;
+
+  }
+
+} */ 
